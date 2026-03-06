@@ -39,8 +39,8 @@ A bucket policy was created to allow public read access to objects in the bucket
 ## Result
 The website was successfully deployed and accessible through the AWS static website endpoint.
 
-## Example Endpoint
-http://your-bucket-name.s3-website-region.amazonaws.com
+## Endpoint
+http://alykane-aws-project1.s3-website.us-east-2.amazonaws.com 
 
 ## What I Learned
 - How Amazon S3 stores objects
