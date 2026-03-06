@@ -6,9 +6,11 @@ Aly Kane
 Cybersecurity Student
 
 ## Overview
-This project demonstrates how to deploy a static website using Amazon S3.
+## Overview
 
-The goal was to understand how cloud storage, access policies, and static website hosting work in AWS.
+This project demonstrates how to deploy and deliver a static website using Amazon Web Services (AWS). The website was first hosted using Amazon S3 static website hosting and then placed behind AWS CloudFront to enable HTTPS encryption and improve website delivery through a global content delivery network (CDN).
+
+The purpose of this project was to gain hands-on experience with cloud storage, access control, static website hosting, and CDN-based content delivery using AWS services.
 
 ## Technologies Used
 - Amazon S3
