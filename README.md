@@ -64,8 +64,7 @@ The website is now served through CloudFront over HTTPS.
 User → CloudFront CDN → S3 Bucket
 
 
-## Endpoint
-http://alykane-aws-project1.s3-website.us-east-2.amazonaws.com 
+
 
 ## What I Learned
 - How Amazon S3 stores objects
@@ -106,3 +105,16 @@ CloudFront retrieves the website files from the S3 bucket and delivers them secu
                 |  Static Website    |
                 |   File Storage     |
                 +--------------------+
+## Live Endpoints
+
+### CloudFront Endpoint (Secure Production Delivery)
+
+This is the primary endpoint used to access the website through CloudFront with HTTPS enabled.
+
+https://d1bk4o3fq471xc.cloudfront.net
+
+### S3 Static Website Endpoint
+
+This endpoint was used during the initial deployment when the website was hosted directly through Amazon S3 static website hosting.
+
+http://alykane-aws-project1.s3-website.us-east-2.amazonaws.com
