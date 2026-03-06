@@ -1,5 +1,10 @@
 # AWS Static Website Hosting Project
 
+## Author
+
+Aly Kane  
+Cybersecurity Student
+
 ## Overview
 This project demonstrates how to deploy a static website using Amazon S3.
 
@@ -9,35 +14,53 @@ The goal was to understand how cloud storage, access policies, and static websit
 - Amazon S3
 - AWS Management Console
 - HTML
+- Content Delivery Network (CDN)
+- HTTPS
 
 ## Project Steps
 
-### 1. Created a static webpage
+###  Created a static webpage
 I created a simple HTML webpage called `index.html` using VS Code.
 
-### 2. Created an S3 bucket
+###  Created an S3 bucket
 A new S3 bucket was created in AWS to store the website files.
 
-Bucket name example:
-alykane-aws-project1
 
-### 3. Uploaded website files
+### Uploaded website files
 The index.html file was uploaded to the bucket.
 
-### 4. Enabled Static Website Hosting
+###  Enabled Static Website Hosting
 Static website hosting was enabled in the bucket properties.
 
-Index document:
-index.html
 
-### 5. Configured public access
+
+###  Configured public access
 Public access settings were modified to allow users to access the website.
 
-### 6. Added bucket policy
+###  Added bucket policy
 A bucket policy was created to allow public read access to objects in the bucket.
 
-## Result
-The website was successfully deployed and accessible through the AWS static website endpoint.
+## CloudFront CDN and HTTPS
+
+To improve performance and security, the static website was placed behind an AWS CloudFront distribution.
+
+CloudFront acts as a Content Delivery Network (CDN) that delivers website content through global edge locations and enables HTTPS encryption.
+
+### Configuration Steps
+
+- Created a CloudFront distribution
+- Selected the S3 bucket as the origin
+- Allowed CloudFront private access to the S3 bucket
+- Used recommended cache settings for S3 content
+- Configured the default root object to load the homepage
+- Deployed the distribution so the website can be delivered through CloudFront
+
+### Result
+
+The website is now served through CloudFront over HTTPS.
+
+User → CloudFront CDN → S3 Bucket
+
 
 ## Endpoint
 http://alykane-aws-project1.s3-website.us-east-2.amazonaws.com 
@@ -48,3 +71,36 @@ http://alykane-aws-project1.s3-website.us-east-2.amazonaws.com
 - How bucket policies control access
 - Basic cloud deployment workflow# was-static-website-project
 Hosting a static website using AWS S3 with public access policies.
+
+## Project Architecture
+
+The website is deployed using Amazon S3 for storage and AWS CloudFront for secure content delivery.
+
+Traffic flow:
+
+User → CloudFront CDN → Amazon S3
+
+CloudFront retrieves the website files from the S3 bucket and delivers them securely to users over HTTPS.
+
+## Architecture Diagram
+                +--------------------+
+                |       Users        |
+                |  Web Browser /     |
+                |  Internet Traffic  |
+                +---------+----------+
+                          |
+                          | HTTPS
+                          v
+                +--------------------+
+                |    AWS CloudFront  |
+                |  Content Delivery  |
+                |       Network      |
+                +---------+----------+
+                          |
+                          | Secure origin request
+                          v
+                +--------------------+
+                |     Amazon S3      |
+                |  Static Website    |
+                |   File Storage     |
+                +--------------------+
